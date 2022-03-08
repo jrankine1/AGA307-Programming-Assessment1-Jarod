@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class TriggerPad : MonoBehaviour
 {
-    public GameObject sphere;   //The object we wish to change
+    public GameObject sphere;
+    public Color toColor;
+    Color originalColor;
+
+    private void Start()
+    {
+        originalColor = sphere.GetComponent<Renderer>().material.color;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            //change the spheres colour to green
+            sphere.GetComponent<Renderer>().material.color = toColor;
         }
     }
 
@@ -18,7 +25,7 @@ public class TriggerPad : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Increas the spheres scale by 0.01 on all axis
+            sphere.transform.localScale += Vector3.one * 0.01f;
         }
     }
 
@@ -26,8 +33,8 @@ public class TriggerPad : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //set the spheres size back to 1
-            //Change the spheres colour to yellow
+            sphere.GetComponent<Renderer>().material.color = originalColor;
+            sphere.transform.localScale = Vector3.one;
         }
     }
 }
