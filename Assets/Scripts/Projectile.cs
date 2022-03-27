@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : GameBehaviour
 {
     
     void Start()
@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<Renderer>().material.color = Color.red;
             Destroy(collision.gameObject, 1);
+            _GM.AddScore(10);
+            
         }
         
     }

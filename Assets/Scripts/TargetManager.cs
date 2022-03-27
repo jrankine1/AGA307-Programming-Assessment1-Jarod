@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TargetSize { Small, medium, large}
 
-public class TargetManager : MonoBehaviour
+
+public class TargetManager : GameBehaviour<TargetManager>
 {
     public Transform[] spawnPoints;
     public GameObject[] targetTypes;

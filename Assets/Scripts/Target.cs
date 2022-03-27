@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+public class Target : GameBehaviour
 {
     float moveDistance = 500;
-    public TargetSize targetSize;
+    public Difficulty difficulty;
+    
     float scaleFactor = 1;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +19,15 @@ public class Target : MonoBehaviour
 
     void Setup()
     {
-        switch(targetSize)
+        switch(difficulty)
         {
-            case TargetSize.Small:
+            case Difficulty.Easy:
                 scaleFactor = 1;
                 break;
-            case TargetSize.medium:
+            case Difficulty.Medium:
                 scaleFactor = 2;
                 break;
-            case TargetSize.large:
+            case Difficulty.Hard:
                 scaleFactor = 3;
                 break;
             default:
